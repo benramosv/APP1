@@ -22,7 +22,7 @@ export default function Page() {
               Next.js Learn Course
             </a>
             <a href="https://dashboard-amber-sigma.vercel.app/dashboard/" className="text-blue-500">
-            , brought to you by Vercel. Ir al Dashboard: 
+            . Ir al Dashboard: 
             </a>
           </p>
           <Link
