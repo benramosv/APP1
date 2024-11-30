@@ -13,7 +13,12 @@ import {
 } from '@/app/ui/skeletons';
 
  
-export default async function Page() {
+export default async function Page(props: {
+  searchParams?: Promise<{
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  
   //const revenue = await fetchRevenue(); // se ha eliminado
   // const latestInvoices = await fetchLatestInvoices();
   /*const {
