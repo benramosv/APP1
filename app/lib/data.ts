@@ -8,8 +8,9 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+const API_URL = 'https://app1be-production.up.railway.app/api';  //'http://localhost:8000/api';
 
-export async function fetchRevenue() {
+/* export async function fetchRevenue() {  //**************
   try {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
@@ -17,7 +18,8 @@ export async function fetchRevenue() {
     //console.log('Fetching revenue data...');
     //await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const data = await sql<Revenue>`SELECT * FROM revenue`;
+  
+      const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     //console.log('Data fetch completed after 3 seconds.');
 
@@ -26,6 +28,14 @@ export async function fetchRevenue() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch revenue data.');
   }
+}*/
+
+export async function fetchRevenue() {
+  const response = await fetch(`${API_URL}/revenue`);
+  if (!response.ok) {
+    throw new Error('Error fetching revenue');
+  }
+  return await response.json();
 }
 
 export async function fetchLatestInvoices() {
